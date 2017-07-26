@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Timers;
+
 
 namespace DogDoors
 {
@@ -18,7 +20,20 @@ namespace DogDoors
             {
                 _door.Close();
             }
-            else {_door.Open();}
+            else
+            {
+                _door.Open();
+            }
+            
+            var timer = new Timer(5000);
+            timer.Elapsed += delegate
+            {
+                _door.Close();
+                timer.Enabled = false;
+            };
+            timer.Enabled = true;
         }
+
+        
     }
 }

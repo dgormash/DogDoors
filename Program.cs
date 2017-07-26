@@ -15,11 +15,18 @@ namespace DogDoors
             Console.WriteLine("Fido barks to go outside...");
             remote.PressButton();
             Console.WriteLine("Fido has gone outside...");
-            remote.PressButton();
             Console.WriteLine("Fido's all done...");
+            //if (!door.IsOpen())
+            //{
+            //    Console.WriteLine("Fido barks to go inside...");
+            //    remote.PressButton();
+            //}
+            System.Threading.Thread.Sleep(10000);
+            Console.WriteLine("Fido stuck outside...");
+            Console.WriteLine("Fido starts barking...");
+            Console.WriteLine("... so Gina grabs the remote control...");
             remote.PressButton();
             Console.WriteLine("Fido's back inside...");
-            remote.PressButton();
             Console.ReadKey();
         }
     }
