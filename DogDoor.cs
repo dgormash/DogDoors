@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Timers;
 
 namespace DogDoors
 {
@@ -15,6 +16,13 @@ namespace DogDoors
         {
             Console.WriteLine("The dog door opens.");
             _open = true;
+            var timer = new Timer(5000);
+            timer.Elapsed += delegate
+            {
+                Close();
+                timer.Enabled = false;
+            };
+            timer.Enabled = true;
         }
 
         public void Close()
